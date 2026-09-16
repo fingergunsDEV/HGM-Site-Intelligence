@@ -1,0 +1,6 @@
+{
+  "name": "Site Intelligence Platform",
+  "description": "Enterprise SEO & Schema Crawler, Site Audit, Internal Link Graph, ACE 6-Layer Cognitive Orchestrator, CI/CD Remediation Pipeline, and Gemini 3.8 SuperAdmin Assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
