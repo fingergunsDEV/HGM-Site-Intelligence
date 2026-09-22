@@ -130,36 +130,36 @@ export function AuthModal({
   return (
     <div 
       id="auth-modal-overlay"
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/75 backdrop-blur-xs animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-[#202124]/40 backdrop-blur-xs animate-in fade-in duration-200"
     >
       <div 
         id="auth-modal-container"
-        className="bg-white rounded-2xl border border-slate-200 shadow-2xl w-full max-w-md overflow-hidden flex flex-col relative max-h-[92vh]"
+        className="bg-white rounded-lg border border-[#dadce0] shadow-xl w-full max-w-md overflow-hidden flex flex-col relative max-h-[92vh]"
       >
         {/* Close Button */}
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+          className="absolute top-4 right-4 z-10 p-1.5 rounded-md text-[#5f6368] hover:text-[#202124] hover:bg-[#f1f3f4] transition-colors cursor-pointer"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Top Visual Banner */}
-        <div className="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 p-5 sm:p-6 text-white border-b border-indigo-950">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-semibold mb-2.5">
-            <Zap className="w-3.5 h-3.5" />
+        <div className="bg-white p-5 sm:p-6 border-b border-[#dadce0]">
+          <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-medium bg-[#e8f0fe] text-[#1a73e8] border border-[#d2e3fc] mb-2">
+            <Zap className="w-3 h-3" />
             <span>Google Auth & Access Control</span>
           </div>
-          <h2 className="text-xl font-bold tracking-tight text-white">
+          <h2 className="text-lg font-semibold tracking-tight text-[#202124]">
             {showGoogleChooser 
               ? 'Sign in with Google' 
               : mode === 'signup' 
               ? 'Create Your Account' 
               : 'Welcome Back'}
           </h2>
-          <p className="text-xs text-indigo-200/80 mt-1.5 leading-relaxed">
+          <p className="text-xs text-[#5f6368] mt-1 leading-relaxed">
             {titlePrompt || (showGoogleChooser
               ? 'Select your Google Account to sign in. Owner and authorized beta testers bypass all paywalls with unlimited access.'
               : mode === 'signup' 
@@ -168,11 +168,11 @@ export function AuthModal({
           </p>
 
           {/* Quick Notice Banner */}
-          <div className="mt-3.5 p-2.5 bg-white/10 rounded-xl border border-white/10 flex items-center justify-between text-xs">
+          <div className="mt-3 p-2.5 bg-[#f8fafd] rounded-md border border-[#dadce0] flex items-center justify-between text-xs">
             <div className="flex items-center gap-2">
-              <Crown className="w-4 h-4 text-amber-300" />
-              <span className="text-[11px] text-slate-200">
-                <strong className="text-amber-300">jason@holisticgrowthmarketing.com</strong> unlocks all features
+              <Crown className="w-4 h-4 text-[#b06000]" />
+              <span className="text-[11px] text-[#3c4043]">
+                <strong className="text-[#202124]">jason@holisticgrowthmarketing.com</strong> unlocks all features
               </span>
             </div>
           </div>
@@ -181,20 +181,20 @@ export function AuthModal({
         {/* Modal Body */}
         <div className="p-5 sm:p-6 overflow-y-auto">
           {error && (
-            <div className="mb-4 p-3 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs font-medium">
+            <div className="mb-4 p-3 rounded-md bg-[#fce8e6] border border-[#fad2cf] text-[#c5221f] text-xs font-medium">
               {error}
             </div>
           )}
 
           {/* GOOGLE ACCOUNT CHOOSER VIEW */}
           {showGoogleChooser ? (
-            <div className="space-y-3.5">
-              <div className="text-xs font-semibold text-slate-700 mb-1 flex items-center justify-between">
+            <div className="space-y-3">
+              <div className="text-xs font-medium text-[#202124] mb-1 flex items-center justify-between">
                 <span>Choose a Google Account:</span>
                 <button
                   type="button"
                   onClick={() => setShowGoogleChooser(false)}
-                  className="text-[11px] text-indigo-600 hover:text-indigo-800 font-semibold cursor-pointer"
+                  className="text-[11px] text-[#1a73e8] hover:underline font-medium cursor-pointer"
                 >
                   Use email instead
                 </button>
@@ -205,32 +205,32 @@ export function AuthModal({
                 type="button"
                 disabled={isLoading}
                 onClick={() => handleGoogleSelect(OWNER_EMAIL, 'Jason (Owner)')}
-                className="w-full text-left p-3.5 rounded-xl border-2 border-indigo-500 bg-indigo-50/50 hover:bg-indigo-100/70 transition-all flex items-center justify-between group cursor-pointer"
+                className="w-full text-left p-3.5 rounded-md border border-[#d2e3fc] bg-[#e8f0fe]/40 hover:bg-[#e8f0fe] transition-all flex items-center justify-between group cursor-pointer"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shadow-xs shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-[#1a73e8] text-white flex items-center justify-center font-medium text-xs shrink-0">
                     J
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold text-slate-900">Jason (Platform Owner)</span>
-                      <span className="px-2 py-0.5 rounded-full bg-amber-400/20 text-amber-800 border border-amber-400/40 text-[10px] font-bold">
+                      <span className="text-xs font-semibold text-[#202124]">Jason (Platform Owner)</span>
+                      <span className="px-1.5 py-0.2 rounded bg-[#fef7e0] text-[#b06000] border border-[#fce8b2] text-[10px] font-medium">
                         SuperAdmin VIP
                       </span>
                     </div>
-                    <div className="text-[11px] text-indigo-900 font-mono font-medium">{OWNER_EMAIL}</div>
-                    <div className="text-[10px] text-emerald-700 font-semibold mt-0.5">
+                    <div className="text-[11px] text-[#1a73e8] font-mono">{OWNER_EMAIL}</div>
+                    <div className="text-[10px] text-[#137333] font-medium mt-0.5">
                       ✓ All Features Unlocked • Paywalls Disabled • Invite Testers
                     </div>
                   </div>
                 </div>
-                <ChevronRight className="w-4 h-4 text-indigo-600 group-hover:translate-x-0.5 transition-transform shrink-0" />
+                <ChevronRight className="w-4 h-4 text-[#1a73e8] group-hover:translate-x-0.5 transition-transform shrink-0" />
               </button>
 
               {/* Invited Beta Testers (if any) */}
               {testers.length > 0 && (
                 <div className="space-y-2 pt-1">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 font-mono">
+                  <div className="text-[10px] font-medium uppercase tracking-wider text-[#5f6368] font-mono">
                     Authorized Early Adopter Beta Testers
                   </div>
                   {testers.map((t) => (
@@ -239,26 +239,26 @@ export function AuthModal({
                       type="button"
                       disabled={isLoading}
                       onClick={() => handleGoogleSelect(t.email, t.name)}
-                      className="w-full text-left p-3 rounded-xl border border-emerald-300 bg-emerald-50/40 hover:bg-emerald-100/60 transition-all flex items-center justify-between group cursor-pointer"
+                      className="w-full text-left p-3 rounded-md border border-[#ceead6] bg-[#e6f4ea]/30 hover:bg-[#e6f4ea]/60 transition-all flex items-center justify-between group cursor-pointer"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shrink-0">
+                        <div className="w-8 h-8 rounded-full bg-[#137333] text-white flex items-center justify-center font-medium text-xs shrink-0">
                           {t.name?.charAt(0).toUpperCase() || t.email.charAt(0).toUpperCase()}
                         </div>
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="text-xs font-bold text-slate-900">{t.name || t.email}</span>
-                            <span className="px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold font-mono">
+                            <span className="text-xs font-semibold text-[#202124]">{t.name || t.email}</span>
+                            <span className="px-1.5 py-0.2 rounded bg-[#ceead6] text-[#137333] text-[10px] font-medium font-mono">
                               Beta Tester
                             </span>
                           </div>
-                          <div className="text-[11px] text-slate-600 font-mono">{t.email}</div>
-                          <div className="text-[10px] text-emerald-700 font-medium">
+                          <div className="text-[11px] text-[#5f6368] font-mono">{t.email}</div>
+                          <div className="text-[10px] text-[#137333] font-medium">
                             ✓ All features unlocked & paywalls disabled
                           </div>
                         </div>
                       </div>
-                      <ChevronRight className="w-4 h-4 text-emerald-600 group-hover:translate-x-0.5 transition-transform shrink-0" />
+                      <ChevronRight className="w-4 h-4 text-[#137333] group-hover:translate-x-0.5 transition-transform shrink-0" />
                     </button>
                   ))}
                 </div>
@@ -269,18 +269,18 @@ export function AuthModal({
                 <button
                   type="button"
                   onClick={() => setShowCustomGoogleInput(true)}
-                  className="w-full py-2.5 px-3 rounded-xl border border-dashed border-slate-300 hover:border-slate-400 bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-semibold flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                  className="w-full py-2.5 px-3 rounded-md border border-dashed border-[#dadce0] hover:border-[#1a73e8] bg-[#f8fafd] hover:bg-white text-[#3c4043] text-xs font-medium flex items-center justify-center gap-2 transition-colors cursor-pointer"
                 >
-                  <Plus className="w-3.5 h-3.5" />
+                  <Plus className="w-3.5 h-3.5 text-[#1a73e8]" />
                   <span>Sign in with another Google Account</span>
                 </button>
               ) : (
-                <form onSubmit={handleCustomGoogleSubmit} className="p-3.5 rounded-xl border border-slate-200 bg-slate-50 space-y-3 animate-in fade-in">
-                  <div className="text-xs font-bold text-slate-800">
+                <form onSubmit={handleCustomGoogleSubmit} className="p-3.5 rounded-md border border-[#dadce0] bg-[#f8fafd] space-y-3 animate-in fade-in">
+                  <div className="text-xs font-semibold text-[#202124]">
                     Enter Google Account Details
                   </div>
                   <div>
-                    <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                    <label className="block text-[11px] font-medium text-[#5f6368] mb-1">
                       Google Email Address
                     </label>
                     <input
@@ -289,11 +289,11 @@ export function AuthModal({
                       value={customGoogleEmail}
                       onChange={(e) => setCustomGoogleEmail(e.target.value)}
                       placeholder="username@gmail.com or @yourdomain.com"
-                      className="w-full px-3 py-2 text-xs rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 bg-white"
+                      className="w-full px-3 py-1.5 text-xs rounded-md border border-[#dadce0] focus:outline-none focus:border-[#1a73e8] bg-white"
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                    <label className="block text-[11px] font-medium text-[#5f6368] mb-1">
                       Display Name (Optional)
                     </label>
                     <input
@@ -301,7 +301,7 @@ export function AuthModal({
                       value={customGoogleName}
                       onChange={(e) => setCustomGoogleName(e.target.value)}
                       placeholder="e.g. Alex Morgan"
-                      className="w-full px-3 py-2 text-xs rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 bg-white"
+                      className="w-full px-3 py-1.5 text-xs rounded-md border border-[#dadce0] focus:outline-none focus:border-[#1a73e8] bg-white"
                     />
                   </div>
 
@@ -309,14 +309,14 @@ export function AuthModal({
                     <button
                       type="button"
                       onClick={() => setShowCustomGoogleInput(false)}
-                      className="text-xs text-slate-500 hover:text-slate-700"
+                      className="text-xs text-[#5f6368] hover:text-[#202124]"
                     >
                       Cancel
                     </button>
                     <button
                       type="submit"
                       disabled={isLoading}
-                      className="px-4 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold transition-colors cursor-pointer disabled:opacity-50"
+                      className="px-3 py-1.5 bg-[#1a73e8] hover:bg-[#1557b0] text-white rounded-md text-xs font-medium transition-colors cursor-pointer disabled:opacity-50"
                     >
                       {isLoading ? 'Signing in...' : 'Sign In with Google'}
                     </button>
@@ -326,7 +326,7 @@ export function AuthModal({
 
               {/* Help text */}
               <div className="pt-2 text-center">
-                <p className="text-[11px] text-slate-500">
+                <p className="text-[11px] text-[#5f6368]">
                   Signing in with Google provides secure instant authentication with no passwords required.
                 </p>
               </div>
@@ -340,7 +340,7 @@ export function AuthModal({
                   type="button"
                   onClick={() => setShowGoogleChooser(true)}
                   disabled={isLoading}
-                  className="w-full py-2.5 px-4 bg-white hover:bg-slate-50 active:bg-slate-100 text-slate-800 border border-slate-300 hover:border-slate-400 rounded-xl text-xs font-semibold shadow-xs flex items-center justify-center gap-3 transition-all cursor-pointer disabled:opacity-50"
+                  className="w-full py-2 px-4 bg-white hover:bg-[#f8fafd] text-[#3c4043] border border-[#dadce0] hover:border-[#1a73e8] rounded-md text-xs font-medium shadow-2xs flex items-center justify-center gap-3 transition-all cursor-pointer disabled:opacity-50"
                 >
                   <svg className="w-4 h-4" viewBox="0 0 24 24">
                     <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
@@ -354,22 +354,22 @@ export function AuthModal({
 
               {/* Divider */}
               <div className="relative flex items-center justify-center my-3">
-                <div className="border-t border-slate-200 w-full"></div>
-                <span className="bg-white px-3 text-[11px] text-slate-400 font-medium uppercase font-mono">
+                <div className="border-t border-[#dadce0] w-full"></div>
+                <span className="bg-white px-3 text-[11px] text-[#5f6368] font-medium uppercase font-mono">
                   or with email
                 </span>
-                <div className="border-t border-slate-200 w-full"></div>
+                <div className="border-t border-[#dadce0] w-full"></div>
               </div>
 
               {/* Mode Switcher */}
-              <div className="flex p-1 bg-slate-100 rounded-xl mb-4 border border-slate-200">
+              <div className="flex p-0.5 bg-[#f1f3f4] rounded-md mb-4 border border-[#dadce0]">
                 <button
                   type="button"
                   onClick={() => { setMode('signup'); setError(null); }}
-                  className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${
+                  className={`flex-1 py-1.5 text-xs font-medium rounded transition-all cursor-pointer ${
                     mode === 'signup' 
-                      ? 'bg-white text-slate-900 shadow-xs' 
-                      : 'text-slate-600 hover:text-slate-900'
+                      ? 'bg-white text-[#1a73e8] shadow-2xs font-semibold' 
+                      : 'text-[#5f6368] hover:text-[#202124]'
                   }`}
                 >
                   Create Account (Free)
@@ -377,10 +377,10 @@ export function AuthModal({
                 <button
                   type="button"
                   onClick={() => { setMode('signin'); setError(null); }}
-                  className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${
+                  className={`flex-1 py-1.5 text-xs font-medium rounded transition-all cursor-pointer ${
                     mode === 'signin' 
-                      ? 'bg-white text-slate-900 shadow-xs' 
-                      : 'text-slate-600 hover:text-slate-900'
+                      ? 'bg-white text-[#1a73e8] shadow-2xs font-semibold' 
+                      : 'text-[#5f6368] hover:text-[#202124]'
                   }`}
                 >
                   Sign In
@@ -390,62 +390,62 @@ export function AuthModal({
               <form onSubmit={handleSubmit} className="space-y-3">
                 {mode === 'signup' && (
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                    <label className="block text-xs font-medium text-[#3c4043] mb-1">
                       Full Name or Organization
                     </label>
                     <div className="relative">
-                      <User className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                      <User className="w-4 h-4 text-[#5f6368] absolute left-3 top-2.5" />
                       <input
                         type="text"
                         required
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="e.g. Alex Morgan"
-                        className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 bg-white"
+                        className="w-full pl-9 pr-3 py-1.5 text-xs rounded-md border border-[#dadce0] focus:outline-none focus:border-[#1a73e8] bg-white text-[#202124]"
                       />
                     </div>
                   </div>
                 )}
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  <label className="block text-xs font-medium text-[#3c4043] mb-1">
                     Work Email Address
                   </label>
                   <div className="relative">
-                    <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                    <Mail className="w-4 h-4 text-[#5f6368] absolute left-3 top-2.5" />
                     <input
                       type="email"
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="alex@company.com"
-                      className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 bg-white"
+                      className="w-full pl-9 pr-3 py-1.5 text-xs rounded-md border border-[#dadce0] focus:outline-none focus:border-[#1a73e8] bg-white text-[#202124]"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  <label className="block text-xs font-medium text-[#3c4043] mb-1">
                     Password
                   </label>
                   <div className="relative">
-                    <Lock className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                    <Lock className="w-4 h-4 text-[#5f6368] absolute left-3 top-2.5" />
                     <input
                       type="password"
                       required
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••••••"
-                      className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 bg-white"
+                      className="w-full pl-9 pr-3 py-1.5 text-xs rounded-md border border-[#dadce0] focus:outline-none focus:border-[#1a73e8] bg-white text-[#202124]"
                     />
                   </div>
-                  <p className="text-[10px] text-slate-400 mt-1">Minimum 6 characters.</p>
+                  <p className="text-[10px] text-[#5f6368] mt-1">Minimum 6 characters.</p>
                 </div>
 
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full mt-2 py-2.5 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white rounded-xl text-xs font-bold shadow-md shadow-indigo-600/20 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  className="w-full mt-2 py-2 bg-[#1a73e8] hover:bg-[#1557b0] text-white rounded-md text-xs font-medium transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                 >
                   {isLoading ? (
                     <span>Authenticating...</span>
@@ -464,12 +464,12 @@ export function AuthModal({
               </form>
 
               {/* Guarantee Note */}
-              <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+              <div className="mt-4 pt-4 border-t border-[#dadce0] flex items-center justify-between text-[11px] text-[#5f6368]">
                 <span className="flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#137333]" />
                   No credit card required for 1st test
                 </span>
-                <span className="font-semibold text-indigo-600">
+                <span className="font-medium text-[#1a73e8]">
                   Pro is $20/month
                 </span>
               </div>

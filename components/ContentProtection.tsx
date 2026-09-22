@@ -95,22 +95,22 @@ export function ContentProtection({ user, onOpenSubscriptionModal }: ContentProt
       id="content-protection-toast"
       className="fixed bottom-6 right-6 z-50 max-w-md animate-in slide-in-from-bottom-5 duration-200"
     >
-      <div className="bg-slate-900 text-white p-4 rounded-xl border border-slate-700 shadow-2xl flex items-start gap-3">
-        <div className="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-400/30 flex items-center justify-center shrink-0 text-amber-400 mt-0.5">
+      <div className="bg-[#202124] text-white p-4 rounded-lg border border-[#3c4043] shadow-xl flex items-start gap-3">
+        <div className="w-8 h-8 rounded-md bg-[#fef7e0]/15 border border-[#fce8b2]/30 flex items-center justify-center shrink-0 text-[#fbbc04] mt-0.5">
           <Lock className="w-4 h-4" />
         </div>
         <div className="flex-1 text-xs">
-          <div className="flex items-center justify-between font-bold text-slate-100 mb-1">
+          <div className="flex items-center justify-between font-semibold text-white mb-1">
             <span>Free Crawl Protection Active</span>
             <button 
               type="button"
               onClick={() => setToastVisible(false)}
-              className="text-slate-400 hover:text-white p-0.5"
+              className="text-[#9aa0a6] hover:text-white p-0.5 cursor-pointer"
             >
               <X className="w-3.5 h-3.5" />
             </button>
           </div>
-          <p className="text-slate-300 text-[11px] leading-relaxed">
+          <p className="text-[#dadce0] text-[11px] leading-relaxed">
             {toastMessage}
           </p>
           <div className="mt-2.5 flex items-center gap-2">
@@ -120,15 +120,15 @@ export function ContentProtection({ user, onOpenSubscriptionModal }: ContentProt
                 setToastVisible(false);
                 onOpenSubscriptionModal('copy');
               }}
-              className="px-3 py-1.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
+              className="px-3 py-1.5 bg-[#1a73e8] hover:bg-[#1557b0] text-white rounded-md text-xs font-medium transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
             >
-              <Zap className="w-3.5 h-3.5 fill-slate-950" />
+              <Zap className="w-3.5 h-3.5 fill-white" />
               <span>Add Credits ($1/crawl)</span>
             </button>
             <button
               type="button"
               onClick={() => setToastVisible(false)}
-              className="px-2.5 py-1.5 text-slate-400 hover:text-white text-xs cursor-pointer"
+              className="px-2.5 py-1.5 text-[#9aa0a6] hover:text-white text-xs cursor-pointer"
             >
               Dismiss
             </button>

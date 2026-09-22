@@ -166,35 +166,35 @@ export function AuditDrawer({
   const rawHtmlText = page.rawHtml || `<!-- Live HTML not yet pulled. Click 'Pull Live HTML' above to fetch. -->\n<!DOCTYPE html>\n<html lang="en">\n<head>\n  <title>${page.title}</title>\n  <meta name="description" content="${page.metaDescription}">\n  <link rel="canonical" href="${page.canonicalUrl}">\n</head>\n<body>\n  <h1>${page.h1?.[0] || page.title}</h1>\n  <p>Word Count: ${page.wordCount} words</p>\n</body>\n</html>`;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-xs animate-in fade-in duration-200">
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-2xl w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#202124]/40 backdrop-blur-xs animate-in fade-in duration-200">
+      <div className="bg-white rounded-lg border border-[#dadce0] shadow-xl w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden">
         {/* Drawer Header */}
-        <div className="p-4 sm:p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50/70">
+        <div className="p-4 sm:p-5 border-b border-[#dadce0] flex items-center justify-between bg-white">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600">
-              <AlertTriangle className="w-5 h-5" />
+            <div className="w-9 h-9 rounded-md bg-[#fce8e6] border border-[#fad2cf] flex items-center justify-center text-[#c5221f]">
+              <AlertTriangle className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <h3 className="text-sm font-semibold text-[#202124] flex items-center gap-2">
                 <span>SEO & Live HTML Inspection</span>
                 {page.isLiveFetched && (
-                  <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-[#e6f4ea] text-[#137333] border border-[#ceead6]">
                     Live HTTP
                   </span>
                 )}
               </h3>
-              <p className="text-xs text-slate-500 font-mono truncate max-w-md">
+              <p className="text-xs text-[#5f6368] font-mono truncate max-w-md">
                 {page.url}
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5">
             <a
               href={page.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-1.5 text-slate-500 hover:text-indigo-600 hover:bg-slate-200/60 rounded-lg transition-colors"
+              className="p-1.5 text-[#5f6368] hover:text-[#1a73e8] hover:bg-[#f1f3f4] rounded-md transition-colors"
               title="Open Live URL in new tab"
             >
               <Globe className="w-4 h-4" />
@@ -202,7 +202,7 @@ export function AuditDrawer({
             <button
               type="button"
               onClick={onClose}
-              className="p-1.5 text-slate-400 hover:text-slate-700 hover:bg-slate-200/60 rounded-lg transition-colors"
+              className="p-1.5 text-[#5f6368] hover:text-[#202124] hover:bg-[#f1f3f4] rounded-md transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -210,15 +210,15 @@ export function AuditDrawer({
         </div>
 
         {/* Tab Navigation */}
-        <div className="px-5 border-b border-slate-200 bg-white flex items-center justify-between">
+        <div className="px-5 border-b border-[#dadce0] bg-white flex items-center justify-between">
           <div className="flex items-center gap-4">
             <button
               type="button"
               onClick={() => setActiveTab('audit')}
-              className={`py-3 text-xs font-bold border-b-2 transition-colors flex items-center gap-1.5 ${
+              className={`py-3 text-xs font-medium border-b-2 transition-colors flex items-center gap-1.5 cursor-pointer ${
                 activeTab === 'audit'
-                  ? 'border-indigo-600 text-indigo-600'
-                  : 'border-transparent text-slate-500 hover:text-slate-800'
+                  ? 'border-[#1a73e8] text-[#1a73e8]'
+                  : 'border-transparent text-[#5f6368] hover:text-[#202124]'
               }`}
             >
               <AlertOctagon className="w-3.5 h-3.5" />
@@ -227,10 +227,10 @@ export function AuditDrawer({
             <button
               type="button"
               onClick={() => setActiveTab('html')}
-              className={`py-3 text-xs font-bold border-b-2 transition-colors flex items-center gap-1.5 ${
+              className={`py-3 text-xs font-medium border-b-2 transition-colors flex items-center gap-1.5 cursor-pointer ${
                 activeTab === 'html'
-                  ? 'border-indigo-600 text-indigo-600'
-                  : 'border-transparent text-slate-500 hover:text-slate-800'
+                  ? 'border-[#1a73e8] text-[#1a73e8]'
+                  : 'border-transparent text-[#5f6368] hover:text-[#202124]'
               }`}
             >
               <FileCode2 className="w-3.5 h-3.5" />
@@ -242,7 +242,7 @@ export function AuditDrawer({
             type="button"
             onClick={handleReFetchLiveHtml}
             disabled={isReFetching}
-            className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-100 rounded-md border border-slate-200 transition-colors disabled:opacity-50"
+            className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium text-[#3c4043] hover:text-[#1a73e8] hover:bg-[#f1f3f4] rounded-md border border-[#dadce0] transition-colors disabled:opacity-50 cursor-pointer"
             title="Re-scrape and pull fresh HTML from remote server"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${isReFetching ? 'animate-spin' : ''}`} />
@@ -255,96 +255,96 @@ export function AuditDrawer({
           {activeTab === 'audit' ? (
             <>
               {/* Current Page Snapshot */}
-              <div className="p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-xs space-y-2 font-mono">
+              <div className="p-3.5 bg-[#f8fafd] border border-[#dadce0] rounded-md text-xs space-y-2 font-mono">
                 <div>
-                  <span className="text-slate-400 font-semibold uppercase">Title Tag: </span>
-                  <span className="text-slate-800 font-bold">{page.title || '(Empty)'}</span>
-                  <span className="text-slate-400 ml-1">({page.title?.length || 0} chars)</span>
+                  <span className="text-[#5f6368] uppercase text-[11px]">Title Tag: </span>
+                  <span className="text-[#202124] font-medium">{page.title || '(Empty)'}</span>
+                  <span className="text-[#5f6368] ml-1">({page.title?.length || 0} chars)</span>
                 </div>
                 <div>
-                  <span className="text-slate-400 font-semibold uppercase">Meta Description: </span>
-                  <span className="text-slate-700">{page.metaDescription || '(Empty)'}</span>
-                  <span className="text-slate-400 ml-1">({page.metaDescription?.length || 0} chars)</span>
+                  <span className="text-[#5f6368] uppercase text-[11px]">Meta Description: </span>
+                  <span className="text-[#3c4043]">{page.metaDescription || '(Empty)'}</span>
+                  <span className="text-[#5f6368] ml-1">({page.metaDescription?.length || 0} chars)</span>
                 </div>
                 <div className="flex flex-wrap gap-4">
                   <div>
-                    <span className="text-slate-400 font-semibold uppercase">H1 Count: </span>
-                    <span className="text-slate-800 font-bold">{page.h1?.length || 0}</span>
+                    <span className="text-[#5f6368] uppercase text-[11px]">H1 Count: </span>
+                    <span className="text-[#202124] font-medium">{page.h1?.length || 0}</span>
                   </div>
                   <div>
-                    <span className="text-slate-400 font-semibold uppercase">Canonical: </span>
-                    <span className="text-slate-800">{page.canonicalUrl ? 'Present' : 'Missing'}</span>
+                    <span className="text-[#5f6368] uppercase text-[11px]">Canonical: </span>
+                    <span className="text-[#202124]">{page.canonicalUrl ? 'Present' : 'Missing'}</span>
                   </div>
                   <div>
-                    <span className="text-slate-400 font-semibold uppercase">Missing Alt: </span>
-                    <span className="text-slate-800">{page.imagesWithoutAlt || 0}</span>
+                    <span className="text-[#5f6368] uppercase text-[11px]">Missing Alt: </span>
+                    <span className="text-[#202124]">{page.imagesWithoutAlt || 0}</span>
                   </div>
                   <div>
-                    <span className="text-slate-400 font-semibold uppercase">Word Count: </span>
-                    <span className="text-slate-800 font-bold">{page.wordCount || 0} words</span>
+                    <span className="text-[#5f6368] uppercase text-[11px]">Word Count: </span>
+                    <span className="text-[#202124] font-medium">{page.wordCount || 0} words</span>
                   </div>
                 </div>
               </div>
 
               {/* Audit Issues List */}
               {page.issues.length === 0 ? (
-                <div className="p-8 text-center bg-emerald-50/50 border border-emerald-200 rounded-xl">
-                  <CheckCircle2 className="w-8 h-8 text-emerald-600 mx-auto mb-2" />
-                  <h4 className="text-sm font-bold text-emerald-900">Zero Critical SEO Violations</h4>
-                  <p className="text-xs text-emerald-700 mt-1">
+                <div className="p-8 text-center bg-[#e6f4ea]/50 border border-[#ceead6] rounded-md">
+                  <CheckCircle2 className="w-8 h-8 text-[#137333] mx-auto mb-2" />
+                  <h4 className="text-sm font-medium text-[#137333]">Zero Critical SEO Violations</h4>
+                  <p className="text-xs text-[#137333]/80 mt-1">
                     This page adheres to standard technical SEO, heading hierarchy, and meta tag rules.
                   </p>
                 </div>
               ) : (
                 <div className="space-y-3">
-                  <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider font-mono">
+                  <h4 className="text-xs font-medium text-[#5f6368] uppercase tracking-wider">
                     Detected Violations ({page.issues.length})
                   </h4>
 
                   {/* Critical */}
                   {criticalIssues.map((issue) => (
-                    <div key={issue.id} className="p-3 bg-rose-50/60 border border-rose-200 rounded-xl space-y-1.5">
+                    <div key={issue.id} className="p-3 bg-[#fce8e6]/30 border border-[#fad2cf] rounded-md space-y-1.5">
                       <div className="flex items-center gap-2">
-                        <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-rose-200 text-rose-900 uppercase">
+                        <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-[#fce8e6] text-[#c5221f] uppercase border border-[#fad2cf]">
                           CRITICAL • {issue.category}
                         </span>
-                        <span className="text-xs font-bold text-rose-950 font-mono">{issue.code}</span>
+                        <span className="text-xs font-medium text-[#c5221f] font-mono">{issue.code}</span>
                       </div>
-                      <p className="text-xs font-semibold text-rose-900">{issue.message}</p>
-                      <p className="text-[11px] text-rose-700 bg-rose-100/60 p-2 rounded-lg">
-                        💡 <span className="font-semibold">Recommendation:</span> {issue.recommendation}
+                      <p className="text-xs font-medium text-[#202124]">{issue.message}</p>
+                      <p className="text-[11px] text-[#5f6368] bg-white p-2 rounded border border-[#fad2cf]/60">
+                        💡 <span className="font-medium text-[#202124]">Recommendation:</span> {issue.recommendation}
                       </p>
                     </div>
                   ))}
 
                   {/* Warnings */}
                   {warningIssues.map((issue) => (
-                    <div key={issue.id} className="p-3 bg-amber-50/60 border border-amber-200 rounded-xl space-y-1.5">
+                    <div key={issue.id} className="p-3 bg-[#fef7e0]/30 border border-[#feefc3] rounded-md space-y-1.5">
                       <div className="flex items-center gap-2">
-                        <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-200 text-amber-900 uppercase">
+                        <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-[#fef7e0] text-[#b06000] uppercase border border-[#feefc3]">
                           WARNING • {issue.category}
                         </span>
-                        <span className="text-xs font-bold text-amber-950 font-mono">{issue.code}</span>
+                        <span className="text-xs font-medium text-[#b06000] font-mono">{issue.code}</span>
                       </div>
-                      <p className="text-xs font-semibold text-amber-900">{issue.message}</p>
-                      <p className="text-[11px] text-amber-800 bg-amber-100/60 p-2 rounded-lg">
-                        💡 <span className="font-semibold">Recommendation:</span> {issue.recommendation}
+                      <p className="text-xs font-medium text-[#202124]">{issue.message}</p>
+                      <p className="text-[11px] text-[#5f6368] bg-white p-2 rounded border border-[#feefc3]/60">
+                        💡 <span className="font-medium text-[#202124]">Recommendation:</span> {issue.recommendation}
                       </p>
                     </div>
                   ))}
 
                   {/* Notices */}
                   {noticeIssues.map((issue) => (
-                    <div key={issue.id} className="p-3 bg-blue-50/60 border border-blue-200 rounded-xl space-y-1.5">
+                    <div key={issue.id} className="p-3 bg-[#e8f0fe]/30 border border-[#d2e3fc] rounded-md space-y-1.5">
                       <div className="flex items-center gap-2">
-                        <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-blue-200 text-blue-900 uppercase">
+                        <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-[#e8f0fe] text-[#1a73e8] uppercase border border-[#d2e3fc]">
                           NOTICE • {issue.category}
                         </span>
-                        <span className="text-xs font-bold text-blue-950 font-mono">{issue.code}</span>
+                        <span className="text-xs font-medium text-[#1a73e8] font-mono">{issue.code}</span>
                       </div>
-                      <p className="text-xs font-semibold text-blue-900">{issue.message}</p>
-                      <p className="text-[11px] text-blue-800 bg-blue-100/60 p-2 rounded-lg">
-                        💡 <span className="font-semibold">Recommendation:</span> {issue.recommendation}
+                      <p className="text-xs font-medium text-[#202124]">{issue.message}</p>
+                      <p className="text-[11px] text-[#5f6368] bg-white p-2 rounded border border-[#d2e3fc]/60">
+                        💡 <span className="font-medium text-[#202124]">Recommendation:</span> {issue.recommendation}
                       </p>
                     </div>
                   ))}
@@ -353,16 +353,16 @@ export function AuditDrawer({
 
               {/* AI Fix Recommendations Preview */}
               {currentFixes && (
-                <div className="p-4 bg-indigo-50/70 border border-indigo-200 rounded-xl space-y-3 animate-in fade-in">
+                <div className="p-4 bg-[#e8f0fe]/30 border border-[#d2e3fc] rounded-md space-y-3 animate-in fade-in">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-xs font-bold text-indigo-950">
-                      <Sparkles className="w-4 h-4 text-indigo-600" />
+                    <div className="flex items-center gap-2 text-xs font-medium text-[#1a73e8]">
+                      <Sparkles className="w-4 h-4 text-[#1a73e8]" />
                       Gemini AI Optimized Recommendations
                     </div>
                     <button
                       type="button"
                       onClick={handleApplyFix}
-                      className="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-700 text-white rounded text-xs font-semibold flex items-center gap-1 transition-colors"
+                      className="px-2.5 py-1 bg-[#1a73e8] hover:bg-[#1557b0] text-white rounded text-xs font-medium flex items-center gap-1 transition-colors cursor-pointer"
                     >
                       {applied ? <Check className="w-3.5 h-3.5" /> : <Wrench className="w-3.5 h-3.5" />}
                       <span>{applied ? 'Applied!' : 'Apply Fixes'}</span>
@@ -370,19 +370,19 @@ export function AuditDrawer({
                   </div>
 
                   <div className="space-y-2 text-xs font-mono">
-                    <div className="bg-white p-2.5 rounded border border-indigo-100">
-                      <span className="text-slate-400 font-bold uppercase text-[10px]">Optimized Title: </span>
-                      <div className="text-slate-900 font-semibold">{currentFixes.optimizedTitle}</div>
+                    <div className="bg-white p-2.5 rounded border border-[#d2e3fc]">
+                      <span className="text-[#5f6368] font-medium uppercase text-[10px]">Optimized Title: </span>
+                      <div className="text-[#202124] font-medium">{currentFixes.optimizedTitle}</div>
                     </div>
 
-                    <div className="bg-white p-2.5 rounded border border-indigo-100">
-                      <span className="text-slate-400 font-bold uppercase text-[10px]">Optimized Meta Description: </span>
-                      <div className="text-slate-800">{currentFixes.optimizedDescription}</div>
+                    <div className="bg-white p-2.5 rounded border border-[#d2e3fc]">
+                      <span className="text-[#5f6368] font-medium uppercase text-[10px]">Optimized Meta Description: </span>
+                      <div className="text-[#3c4043]">{currentFixes.optimizedDescription}</div>
                     </div>
 
-                    <div className="bg-white p-2.5 rounded border border-indigo-100">
-                      <span className="text-slate-400 font-bold uppercase text-[10px]">Canonical Tag: </span>
-                      <div className="text-indigo-600">{currentFixes.canonicalTag}</div>
+                    <div className="bg-white p-2.5 rounded border border-[#d2e3fc]">
+                      <span className="text-[#5f6368] font-medium uppercase text-[10px]">Canonical Tag: </span>
+                      <div className="text-[#1a73e8]">{currentFixes.canonicalTag}</div>
                     </div>
                   </div>
                 </div>
@@ -392,23 +392,23 @@ export function AuditDrawer({
             /* Live Raw HTML Source View */
             <div className="space-y-3">
               {htmlFixNotice && (
-                <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center justify-between gap-2 text-emerald-800 text-xs font-semibold animate-in fade-in">
+                <div className="p-3 bg-[#e6f4ea] border border-[#ceead6] rounded-md flex items-center justify-between gap-2 text-[#137333] text-xs font-medium animate-in fade-in">
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-[#137333] shrink-0" />
                     <span>{htmlFixNotice}</span>
                   </div>
                 </div>
               )}
 
-              <div className="flex flex-wrap items-center justify-between gap-3 bg-slate-900 text-slate-300 p-2.5 rounded-lg text-xs font-mono">
+              <div className="flex flex-wrap items-center justify-between gap-3 bg-[#f8fafd] border border-[#dadce0] text-[#3c4043] p-2.5 rounded-md text-xs font-mono">
                 <div className="flex items-center gap-2 flex-1 min-w-[180px]">
-                  <Search className="w-3.5 h-3.5 text-slate-400" />
+                  <Search className="w-3.5 h-3.5 text-[#5f6368]" />
                   <input
                     type="text"
                     placeholder="Search inside live HTML source..."
                     value={htmlSearch}
                     onChange={(e) => setHtmlSearch(e.target.value)}
-                    className="bg-transparent border-0 focus:outline-none text-white text-xs w-full placeholder:text-slate-500"
+                    className="bg-transparent border-0 focus:outline-none text-[#202124] text-xs w-full placeholder:text-[#5f6368]"
                   />
                 </div>
                 <div className="flex items-center gap-2">
@@ -416,7 +416,7 @@ export function AuditDrawer({
                     type="button"
                     onClick={handleAutoFixSinglePageHtml}
                     disabled={isAutoFixingHtml}
-                    className="flex items-center gap-1 px-2.5 py-1 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded text-[11px] font-bold shadow-xs transition-all cursor-pointer"
+                    className="flex items-center gap-1 px-2.5 py-1 bg-[#1a73e8] hover:bg-[#1557b0] text-white rounded text-[11px] font-medium transition-all cursor-pointer"
                     title="Clean HTML, embed Schema, fix Title/Meta & H1 tags"
                   >
                     <Sparkles className="w-3 h-3" />
@@ -426,16 +426,16 @@ export function AuditDrawer({
                   <button
                     type="button"
                     onClick={handleCopyHtml}
-                    className="flex items-center gap-1 px-2 py-1 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded text-[11px] transition-colors cursor-pointer"
+                    className="flex items-center gap-1 px-2 py-1 bg-white hover:bg-[#f1f3f4] text-[#3c4043] border border-[#dadce0] rounded text-[11px] font-medium transition-colors cursor-pointer"
                   >
-                    {copiedHtml ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
+                    {copiedHtml ? <Check className="w-3 h-3 text-[#137333]" /> : <Copy className="w-3 h-3" />}
                     <span>{copiedHtml ? 'Copied' : 'Copy HTML'}</span>
                   </button>
                 </div>
               </div>
 
-              <div className="relative rounded-xl border border-slate-800 bg-slate-950 overflow-hidden">
-                <div className="max-h-[500px] overflow-auto p-4 font-mono text-xs text-emerald-400 leading-relaxed whitespace-pre font-normal selection:bg-indigo-600 selection:text-white">
+              <div className="relative rounded-md border border-[#dadce0] bg-[#202124] overflow-hidden">
+                <div className="max-h-[500px] overflow-auto p-4 font-mono text-xs text-[#81c995] leading-relaxed whitespace-pre font-normal selection:bg-[#1a73e8] selection:text-white">
                   {rawHtmlText}
                 </div>
               </div>
@@ -444,13 +444,13 @@ export function AuditDrawer({
         </div>
 
         {/* Drawer Footer */}
-        <div className="p-4 sm:p-5 border-t border-slate-200 bg-slate-50/70 flex flex-wrap items-center justify-between gap-3">
+        <div className="p-4 sm:p-5 border-t border-[#dadce0] bg-white flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <button
               type="button"
               disabled={isAutoFixingHtml}
               onClick={handleAutoFixSinglePageHtml}
-              className="flex items-center gap-1.5 px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-semibold shadow-xs transition-all disabled:opacity-60 cursor-pointer"
+              className="flex items-center gap-1.5 px-3.5 py-2 bg-[#1a73e8] hover:bg-[#1557b0] text-white rounded-md text-xs font-medium transition-all disabled:opacity-60 cursor-pointer"
             >
               {isAutoFixingHtml ? (
                 <>
@@ -472,7 +472,7 @@ export function AuditDrawer({
                   onClose();
                   onOpenFixAll();
                 }}
-                className="flex items-center gap-1.5 px-3.5 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-lg text-xs font-bold shadow-xs transition-all cursor-pointer"
+                className="flex items-center gap-1.5 px-3.5 py-2 bg-white hover:bg-[#f1f3f4] text-[#1a73e8] border border-[#dadce0] rounded-md text-xs font-medium transition-all cursor-pointer"
               >
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Fix All Pages in Sitemap</span>
@@ -485,7 +485,7 @@ export function AuditDrawer({
               type="button"
               disabled={isFixing}
               onClick={handleGenerateAiFix}
-              className="flex items-center gap-1.5 px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg text-xs font-semibold transition-all disabled:opacity-60 cursor-pointer"
+              className="flex items-center gap-1.5 px-3.5 py-2 bg-white hover:bg-[#f1f3f4] text-[#3c4043] border border-[#dadce0] rounded-md text-xs font-medium transition-all disabled:opacity-60 cursor-pointer"
             >
               {isFixing ? (
                 <>
@@ -494,7 +494,7 @@ export function AuditDrawer({
                 </>
               ) : (
                 <>
-                  <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
+                  <Sparkles className="w-3.5 h-3.5 text-[#1a73e8]" />
                   <span>AI Suggestions</span>
                 </>
               )}
@@ -503,7 +503,7 @@ export function AuditDrawer({
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-800 rounded-lg text-xs font-semibold transition-colors cursor-pointer"
+              className="px-4 py-2 bg-white hover:bg-[#f1f3f4] text-[#3c4043] border border-[#dadce0] rounded-md text-xs font-medium transition-colors cursor-pointer"
             >
               Close
             </button>

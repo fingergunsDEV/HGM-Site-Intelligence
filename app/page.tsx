@@ -708,7 +708,7 @@ export default function Home() {
   };
 
   return (
-    <div className={`min-h-screen bg-slate-100/70 text-slate-900 flex flex-col font-sans selection:bg-indigo-500 selection:text-white ${!canUserExportData(user).allowed ? 'select-none' : ''}`}>
+    <div className={`min-h-screen bg-[#f8fafd] text-[#202124] flex flex-col font-sans selection:bg-[#1a73e8] selection:text-white ${!canUserExportData(user).allowed ? 'select-none' : ''}`}>
       {/* Content Protection & Anti-Scraping Shield for Free Tier */}
       <ContentProtection
         user={user}
@@ -768,15 +768,15 @@ export default function Home() {
         {/* Dynamic Content Canvas */}
         <main className="flex-1 overflow-y-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
           {/* Breadcrumb & Section Action Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-200 text-xs">
-            <div className="flex items-center gap-2 text-slate-500 font-mono">
-              <span className="text-slate-400 font-semibold uppercase tracking-wider text-[11px]">Platform</span>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
-              <span className="text-slate-500 font-semibold uppercase tracking-wider text-[11px]">
+          <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#dadce0] text-xs">
+            <div className="flex items-center gap-2 text-[#5f6368]">
+              <span className="text-[#5f6368] font-medium text-[11px]">Platform</span>
+              <ChevronRight className="w-3.5 h-3.5 text-[#80868b]" />
+              <span className="text-[#5f6368] font-medium text-[11px]">
                 {getTabDomainLabel(activeTab)}
               </span>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
-              <span className="text-slate-900 font-bold bg-white px-2.5 py-1 rounded-lg border border-slate-200 shadow-2xs">
+              <ChevronRight className="w-3.5 h-3.5 text-[#80868b]" />
+              <span className="text-[#202124] font-medium bg-white px-2.5 py-1 rounded-md border border-[#dadce0]">
                 {getTabTitle(activeTab)}
               </span>
             </div>
@@ -786,12 +786,12 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => setIsToolSwitcherOpen(true)}
-                className="px-2.5 py-1 bg-white hover:bg-slate-50 text-slate-600 rounded-lg border border-slate-200 font-medium flex items-center gap-1.5 cursor-pointer shadow-2xs"
+                className="px-2.5 py-1 bg-white hover:bg-[#f1f3f4] text-[#3c4043] rounded-md border border-[#dadce0] font-medium flex items-center gap-1.5 cursor-pointer"
                 title="Search Tools & Tabs (⌘K)"
               >
-                <Search className="w-3 h-3 text-slate-400" />
+                <Search className="w-3 h-3 text-[#5f6368]" />
                 <span>Switch Tool</span>
-                <kbd className="text-[9px] font-mono px-1 py-0.2 bg-slate-100 rounded text-slate-400">⌘K</kbd>
+                <kbd className="text-[9px] font-mono px-1 py-0.2 bg-[#f1f3f4] rounded text-[#5f6368]">⌘K</kbd>
               </button>
 
               {activeTab !== 'fixall' && (
@@ -799,9 +799,9 @@ export default function Home() {
                   type="button"
                   onClick={handleTriggerFixAll}
                   disabled={pages.length === 0}
-                  className="px-2.5 py-1 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-lg font-bold flex items-center gap-1.5 cursor-pointer disabled:opacity-50 shadow-2xs"
+                  className="px-2.5 py-1 bg-[#1a73e8] hover:bg-[#1557b0] text-white rounded-md font-medium flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
                 >
-                  <Zap className="w-3 h-3 text-amber-300" />
+                  <Zap className="w-3 h-3 text-white" />
                   <span>Fix All</span>
                 </button>
               )}
@@ -813,9 +813,9 @@ export default function Home() {
                     setSelectedPageForSmtp(null);
                     setIsSmtpModalOpen(true);
                   }}
-                  className="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold flex items-center gap-1.5 cursor-pointer"
+                  className="px-2.5 py-1 bg-white hover:bg-[#f1f3f4] text-[#3c4043] rounded-md border border-[#dadce0] font-medium flex items-center gap-1.5 cursor-pointer"
                 >
-                  <Mail className="w-3 h-3 text-indigo-600" />
+                  <Mail className="w-3 h-3 text-[#1a73e8]" />
                   <span>SMTP</span>
                 </button>
               )}
@@ -851,11 +851,12 @@ export default function Home() {
                 />
 
                 {/* Quick Helper Banner */}
-                <div className="p-4 bg-gradient-to-br from-indigo-900 to-slate-900 text-white rounded-xl shadow-xs border border-indigo-800/50 text-xs space-y-2">
-                  <div className="flex items-center gap-1.5 font-bold text-indigo-300">
-                    <span>⚡ Enterprise Schema & Link Engine</span>
+                <div className="p-3.5 bg-white text-[#202124] rounded-lg border border-[#dadce0] text-xs space-y-1">
+                  <div className="flex items-center gap-1.5 font-medium text-[#1a73e8]">
+                    <Zap className="w-3.5 h-3.5" />
+                    <span>Enterprise Schema & Link Engine</span>
                   </div>
-                  <p className="text-slate-300 leading-relaxed text-[11px]">
+                  <p className="text-[#5f6368] leading-relaxed text-[11px]">
                     Dispatches recursive sitemap traversal, builds JSON-LD schemas for each page type, validates heading structures, and calculates internal link equity flow.
                   </p>
                 </div>
@@ -875,13 +876,13 @@ export default function Home() {
             {pages.length > 0 && (
               <div className="space-y-3 pt-2">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-bold text-slate-800 font-mono">
+                  <h3 className="text-xs font-medium text-[#5f6368] uppercase tracking-wider">
                     CRAWLED PAGES SNAPSHOT ({pages.length})
                   </h3>
                   <button
                     type="button"
                     onClick={() => setActiveTab('results')}
-                    className="text-xs font-semibold text-indigo-600 hover:text-indigo-800 hover:underline cursor-pointer"
+                    className="text-xs font-medium text-[#1a73e8] hover:text-[#1557b0] hover:underline cursor-pointer"
                   >
                     View All {pages.length} Pages & Schemas →
                   </button>
@@ -903,12 +904,12 @@ export default function Home() {
         {/* TAB 2: Pages & Schemas */}
         {activeTab === 'results' && (
           <div className="space-y-4 animate-in fade-in duration-150">
-            <div className="flex flex-wrap items-center justify-between gap-3 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
+            <div className="flex flex-wrap items-center justify-between gap-3 bg-white p-4 rounded-lg border border-[#dadce0]">
               <div>
-                <h2 className="text-base font-bold text-slate-900">
+                <h2 className="text-sm font-medium text-[#202124]">
                   Page Inventory & JSON-LD Schemas
                 </h2>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-[#5f6368]">
                   Full metadata, schema entity definitions, and audit status per crawled URL.
                 </p>
               </div>
@@ -918,16 +919,16 @@ export default function Home() {
                   type="button"
                   onClick={handleTriggerFixAll}
                   disabled={pages.length === 0}
-                  className="px-3.5 py-1.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-lg text-xs font-bold shadow-xs transition-colors disabled:opacity-50 flex items-center gap-1.5 cursor-pointer"
+                  className="px-3.5 py-1.5 bg-[#1a73e8] hover:bg-[#1557b0] text-white rounded-md text-xs font-medium transition-colors disabled:opacity-50 flex items-center gap-1.5 cursor-pointer"
                 >
-                  <Sparkles className="w-3.5 h-3.5" />
+                  <Sparkles className="w-3.5 h-3.5 text-white" />
                   <span>Fix All & Clean HTML</span>
                 </button>
                 <button
                   type="button"
                   onClick={handleDownloadCsv}
                   disabled={pages.length === 0}
-                  className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-semibold border border-slate-200 transition-colors disabled:opacity-50 cursor-pointer"
+                  className="px-3 py-1.5 bg-white hover:bg-[#f1f3f4] text-[#3c4043] rounded-md text-xs font-medium border border-[#dadce0] transition-colors disabled:opacity-50 cursor-pointer"
                 >
                   Export Audit CSV {!canUserExportData(user).allowed && '(🔒 Paid Crawl Req)'}
                 </button>
@@ -935,7 +936,7 @@ export default function Home() {
                   type="button"
                   onClick={handleDownloadZip}
                   disabled={pages.length === 0}
-                  className="px-3.5 py-1.5 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-xs font-semibold shadow-xs transition-colors disabled:opacity-50 cursor-pointer"
+                  className="px-3.5 py-1.5 bg-white hover:bg-[#f1f3f4] text-[#3c4043] rounded-md text-xs font-medium border border-[#dadce0] transition-colors disabled:opacity-50 cursor-pointer"
                 >
                   Download All Schemas (.zip) {!canUserExportData(user).allowed && '(🔒 Paid Crawl Req)'}
                 </button>
@@ -1108,12 +1109,12 @@ export default function Home() {
         {/* TAB: Live Crawl Terminal Stream */}
         {activeTab === 'logs' && (
           <div className="space-y-4 animate-in fade-in duration-150">
-            <div className="flex flex-wrap items-center justify-between gap-3 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
+            <div className="flex flex-wrap items-center justify-between gap-3 bg-white p-4 rounded-lg border border-[#dadce0]">
               <div>
-                <h2 className="text-base font-bold text-slate-900">
+                <h2 className="text-sm font-medium text-[#202124]">
                   Live Crawl & Audit Terminal Stream
                 </h2>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-[#5f6368]">
                   Real-time telemetry, HTTP response status codes, Cheerio DOM extraction events, and Schema synthesis logs.
                 </p>
               </div>
@@ -1131,16 +1132,16 @@ export default function Home() {
                     URL.revokeObjectURL(url);
                   }}
                   disabled={logs.length === 0}
-                  className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-semibold border border-slate-200 transition-colors disabled:opacity-50 cursor-pointer flex items-center gap-1.5"
+                  className="px-3 py-1.5 bg-white hover:bg-[#f1f3f4] text-[#3c4043] rounded-md text-xs font-medium border border-[#dadce0] transition-colors disabled:opacity-50 cursor-pointer flex items-center gap-1.5"
                 >
-                  <Download className="w-3.5 h-3.5 text-slate-600" />
+                  <Download className="w-3.5 h-3.5 text-[#5f6368]" />
                   <span>Export Log File</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => setLogs([])}
                   disabled={logs.length === 0}
-                  className="px-3 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded-lg text-xs font-semibold border border-rose-200 transition-colors disabled:opacity-50 cursor-pointer"
+                  className="px-3 py-1.5 bg-[#fce8e6] hover:bg-[#fad2cf] text-[#c5221f] rounded-md text-xs font-medium border border-[#fad2cf] transition-colors disabled:opacity-50 cursor-pointer"
                 >
                   Clear Logs
                 </button>
@@ -1156,20 +1157,20 @@ export default function Home() {
 
         {/* TAB: Gemini 3.8 SuperAdmin Copilot */}
         {activeTab === 'copilot' && (
-          <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-xs text-center space-y-4 max-w-xl mx-auto my-12 animate-in fade-in duration-150">
-            <div className="w-14 h-14 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center mx-auto text-indigo-600 shadow-2xs">
-              <Bot className="w-7 h-7" />
+          <div className="bg-white p-8 rounded-lg border border-[#dadce0] text-center space-y-4 max-w-xl mx-auto my-12 animate-in fade-in duration-150">
+            <div className="w-12 h-12 rounded-full bg-[#e8f0fe] border border-[#d2e3fc] flex items-center justify-center mx-auto text-[#1a73e8]">
+              <Bot className="w-6 h-6" />
             </div>
             <div className="space-y-1">
-              <h2 className="text-lg font-bold text-slate-900">Gemini 3.8 SuperAdmin Copilot</h2>
-              <p className="text-xs text-slate-500 leading-relaxed">
+              <h2 className="text-base font-semibold text-[#202124]">Gemini 3.8 SuperAdmin Copilot</h2>
+              <p className="text-xs text-[#5f6368] leading-relaxed">
                 Autonomous conversational assistant with complete real-time search intelligence, crawl context, and HTML remediation capabilities.
               </p>
             </div>
             <button
               type="button"
               onClick={() => setIsSuperAdminChatOpen(true)}
-              className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-xs transition-colors cursor-pointer inline-flex items-center gap-2"
+              className="px-5 py-2 bg-[#1a73e8] hover:bg-[#1557b0] text-white rounded-md text-xs font-medium transition-colors cursor-pointer inline-flex items-center gap-2"
             >
               <Bot className="w-4 h-4" />
               <span>Launch Copilot Chat Drawer</span>

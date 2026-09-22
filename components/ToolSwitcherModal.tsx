@@ -249,14 +249,14 @@ export function ToolSwitcherModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 flex items-start justify-center pt-20 p-4 animate-in fade-in duration-100">
+    <div className="fixed inset-0 bg-[#202124]/40 backdrop-blur-xs z-50 flex items-start justify-center pt-20 p-4 animate-in fade-in duration-100">
       <div 
-        className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[80vh] animate-in zoom-in-95 duration-150"
+        className="w-full max-w-2xl bg-white rounded-lg shadow-xl border border-[#dadce0] overflow-hidden flex flex-col max-h-[80vh] animate-in zoom-in-95 duration-150"
         onKeyDown={handleKeyDown}
       >
         {/* Search Input Bar */}
-        <div className="p-4 border-b border-slate-200 flex items-center gap-3 bg-slate-50/70">
-          <Search className="w-5 h-5 text-slate-400 shrink-0" />
+        <div className="p-3.5 border-b border-[#dadce0] flex items-center gap-3 bg-white">
+          <Search className="w-5 h-5 text-[#5f6368] shrink-0" />
           <input
             ref={inputRef}
             type="text"
@@ -265,13 +265,13 @@ export function ToolSwitcherModal({
               setQuery(e.target.value);
               setSelectedIndex(0);
             }}
-            placeholder="Go to tool... (e.g. Site Audit, Auto-Fix All, Link Graph, SMTP)"
-            className="flex-1 bg-transparent text-slate-900 placeholder:text-slate-400 text-sm font-medium focus:outline-none"
+            placeholder="Search tools, reports & engines... (e.g. Site Audit, Auto-Fix All, Link Graph)"
+            className="flex-1 bg-transparent text-[#202124] placeholder:text-[#80868b] text-sm font-normal focus:outline-none"
           />
           <button
             type="button"
             onClick={handleClose}
-            className="p-1 rounded-lg hover:bg-slate-200 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+            className="p-1 rounded-md hover:bg-[#f1f3f4] text-[#5f6368] hover:text-[#202124] transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -280,7 +280,7 @@ export function ToolSwitcherModal({
         {/* Results List */}
         <div className="flex-1 overflow-y-auto p-2 space-y-1">
           {filteredTools.length === 0 ? (
-            <div className="p-12 text-center text-slate-400 text-xs">
+            <div className="p-12 text-center text-[#5f6368] text-xs">
               No matching tools found for &quot;{query}&quot;.
             </div>
           ) : (
@@ -294,28 +294,28 @@ export function ToolSwitcherModal({
                   type="button"
                   onClick={() => handleExecute(tool)}
                   onMouseEnter={() => setSelectedIndex(idx)}
-                  className={`w-full text-left p-3 rounded-xl transition-colors flex items-center justify-between gap-3 cursor-pointer ${
+                  className={`w-full text-left p-2.5 rounded-md transition-colors flex items-center justify-between gap-3 cursor-pointer ${
                     isSelected
-                      ? 'bg-indigo-50 border border-indigo-200/80 text-indigo-950'
-                      : 'hover:bg-slate-50 text-slate-700 border border-transparent'
+                      ? 'bg-[#e8f0fe] border border-[#d2e3fc] text-[#1a73e8]'
+                      : 'hover:bg-[#f8fafd] text-[#202124] border border-transparent'
                   }`}
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className={`p-2 rounded-lg shrink-0 ${
-                      isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-600'
+                    <div className={`p-2 rounded-md shrink-0 ${
+                      isSelected ? 'bg-[#1a73e8] text-white' : 'bg-[#f1f3f4] text-[#5f6368]'
                     }`}>
                       <Icon className="w-4 h-4" />
                     </div>
                     <div className="min-w-0">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-bold text-slate-900 truncate">
+                        <span className="text-xs font-medium text-[#202124] truncate">
                           {tool.title}
                         </span>
-                        <span className="text-[10px] font-mono font-medium px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 border border-slate-200">
+                        <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-[#f1f3f4] text-[#5f6368] border border-[#dadce0]">
                           {tool.category}
                         </span>
                       </div>
-                      <p className="text-[11px] text-slate-500 truncate mt-0.5">
+                      <p className="text-[11px] text-[#5f6368] truncate mt-0.5">
                         {tool.description}
                       </p>
                     </div>
@@ -323,12 +323,12 @@ export function ToolSwitcherModal({
 
                   <div className="flex items-center gap-2 shrink-0">
                     {isSelected && (
-                      <span className="inline-flex items-center gap-1 text-[11px] font-mono text-indigo-600 font-bold bg-indigo-100/70 px-2 py-0.5 rounded">
+                      <span className="inline-flex items-center gap-1 text-[11px] text-[#1a73e8] font-medium bg-[#d2e3fc]/60 px-2 py-0.5 rounded">
                         <span>Select</span>
                         <CornerDownLeft className="w-3 h-3" />
                       </span>
                     )}
-                    <ChevronRight className="w-4 h-4 text-slate-400" />
+                    <ChevronRight className="w-4 h-4 text-[#80868b]" />
                   </div>
                 </button>
               );
@@ -337,23 +337,23 @@ export function ToolSwitcherModal({
         </div>
 
         {/* Footer with Keyboard Hints */}
-        <div className="p-3 bg-slate-50 border-t border-slate-200 text-[11px] font-mono text-slate-500 flex flex-wrap items-center justify-between gap-2">
+        <div className="p-2.5 bg-[#f8fafd] border-t border-[#dadce0] text-[11px] text-[#5f6368] flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 bg-white rounded border border-slate-300 shadow-2xs text-[10px]">↑</kbd>
-              <kbd className="px-1.5 py-0.5 bg-white rounded border border-slate-300 shadow-2xs text-[10px]">↓</kbd>
+              <kbd className="px-1.5 py-0.5 bg-white rounded border border-[#dadce0] text-[10px] text-[#3c4043]">↑</kbd>
+              <kbd className="px-1.5 py-0.5 bg-white rounded border border-[#dadce0] text-[10px] text-[#3c4043]">↓</kbd>
               <span>to navigate</span>
             </span>
             <span className="flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 bg-white rounded border border-slate-300 shadow-2xs text-[10px]">↵</kbd>
+              <kbd className="px-1.5 py-0.5 bg-white rounded border border-[#dadce0] text-[10px] text-[#3c4043]">↵</kbd>
               <span>to select</span>
             </span>
             <span className="flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 bg-white rounded border border-slate-300 shadow-2xs text-[10px]">esc</kbd>
+              <kbd className="px-1.5 py-0.5 bg-white rounded border border-[#dadce0] text-[10px] text-[#3c4043]">esc</kbd>
               <span>to close</span>
             </span>
           </div>
-          <span className="text-slate-400">Site Intelligence Super Menu</span>
+          <span className="text-[#80868b]">Site Intelligence Platform</span>
         </div>
       </div>
     </div>

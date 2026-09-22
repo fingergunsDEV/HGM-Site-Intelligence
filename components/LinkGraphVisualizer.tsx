@@ -368,23 +368,23 @@ export function LinkGraphVisualizer({
   }, [graphData.nodes, typeFilter, searchQuery, highlightMode, pages]);
 
   return (
-    <div className={`space-y-4 ${viewMode === 'fullscreen' ? 'fixed inset-0 z-50 bg-slate-950 p-6 overflow-y-auto' : ''}`}>
+    <div className={`space-y-4 ${viewMode === 'fullscreen' ? 'fixed inset-0 z-50 bg-[#202124] p-6 overflow-y-auto' : ''}`}>
       {/* 1. Control Header & Toolbar */}
-      <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-xs flex flex-wrap items-center justify-between gap-3">
+      <div className="bg-white rounded-lg border border-[#dadce0] p-4 shadow-xs flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center text-white shadow-xs">
-            <Network className="w-5 h-5" />
+          <div className="w-9 h-9 rounded-md bg-[#e8f0fe] border border-[#d2e3fc] flex items-center justify-center text-[#1a73e8]">
+            <Network className="w-4 h-4" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h3 className="text-sm font-bold text-slate-900">
+              <h3 className="text-sm font-semibold text-[#202124]">
                 Internal PageRank & Link Equity Graph
               </h3>
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
+              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-[#e8f0fe] text-[#1a73e8] border border-[#d2e3fc]">
                 Live Dynamic Mesh
               </span>
             </div>
-            <p className="text-xs text-slate-500 font-mono">
+            <p className="text-xs text-[#5f6368] font-mono">
               {graphData.nodes.length} Crawled Nodes • {graphData.links.length} Internal Directed Edges • Max PR: 10.0
             </p>
           </div>
@@ -394,23 +394,23 @@ export function LinkGraphVisualizer({
         <div className="flex flex-wrap items-center gap-2">
           {/* Search bar */}
           <div className="relative">
-            <Search className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-1/2 -translate-y-1/2" />
+            <Search className="w-3.5 h-3.5 text-[#5f6368] absolute left-2.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder="Find URL in graph..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-8 pr-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-mono text-slate-800 placeholder:text-slate-400 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 w-44"
+              className="pl-8 pr-2.5 py-1.5 bg-white border border-[#dadce0] rounded-md text-xs font-mono text-[#202124] placeholder:text-[#9aa0a6] focus:outline-hidden focus:border-[#1a73e8] focus:ring-1 focus:ring-[#1a73e8] w-44"
             />
           </div>
 
           {/* Layout Presets */}
-          <div className="flex items-center bg-slate-100 p-0.5 rounded-lg border border-slate-200 text-xs">
+          <div className="flex items-center bg-[#f1f3f4] p-0.5 rounded-md border border-[#dadce0] text-xs">
             <button
               type="button"
               onClick={() => setLayoutPreset('organic')}
-              className={`px-2.5 py-1 rounded-md font-medium transition-colors cursor-pointer ${
-                layoutPreset === 'organic' ? 'bg-white text-indigo-600 shadow-2xs font-semibold' : 'text-slate-600 hover:text-slate-900'
+              className={`px-2.5 py-1 rounded-sm font-medium transition-colors cursor-pointer ${
+                layoutPreset === 'organic' ? 'bg-white text-[#1a73e8] shadow-xs font-semibold' : 'text-[#5f6368] hover:text-[#202124]'
               }`}
               title="Organic Force Cluster"
             >
@@ -419,8 +419,8 @@ export function LinkGraphVisualizer({
             <button
               type="button"
               onClick={() => setLayoutPreset('radial')}
-              className={`px-2.5 py-1 rounded-md font-medium transition-colors cursor-pointer ${
-                layoutPreset === 'radial' ? 'bg-white text-indigo-600 shadow-2xs font-semibold' : 'text-slate-600 hover:text-slate-900'
+              className={`px-2.5 py-1 rounded-sm font-medium transition-colors cursor-pointer ${
+                layoutPreset === 'radial' ? 'bg-white text-[#1a73e8] shadow-xs font-semibold' : 'text-[#5f6368] hover:text-[#202124]'
               }`}
               title="Concentric PageRank Rings"
             >
@@ -429,8 +429,8 @@ export function LinkGraphVisualizer({
             <button
               type="button"
               onClick={() => setLayoutPreset('hierarchical')}
-              className={`px-2.5 py-1 rounded-md font-medium transition-colors cursor-pointer ${
-                layoutPreset === 'hierarchical' ? 'bg-white text-indigo-600 shadow-2xs font-semibold' : 'text-slate-600 hover:text-slate-900'
+              className={`px-2.5 py-1 rounded-sm font-medium transition-colors cursor-pointer ${
+                layoutPreset === 'hierarchical' ? 'bg-white text-[#1a73e8] shadow-xs font-semibold' : 'text-[#5f6368] hover:text-[#202124]'
               }`}
               title="Hierarchical Architecture Tiers"
             >
@@ -442,7 +442,7 @@ export function LinkGraphVisualizer({
           <select
             value={highlightMode}
             onChange={(e) => setHighlightMode(e.target.value as HighlightMode)}
-            className="px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-medium text-slate-700 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+            className="px-2.5 py-1.5 bg-white border border-[#dadce0] rounded-md text-xs font-medium text-[#3c4043] focus:outline-hidden focus:border-[#1a73e8] focus:ring-1 focus:ring-[#1a73e8] cursor-pointer"
           >
             <option value="all">Show All Connections</option>
             <option value="inlinks">Highlight Inbound Channels</option>
@@ -454,23 +454,23 @@ export function LinkGraphVisualizer({
           <button
             type="button"
             onClick={() => setAnimateFlow(!animateFlow)}
-            className={`p-1.5 rounded-lg border text-xs flex items-center gap-1 transition-colors cursor-pointer ${
+            className={`p-1.5 rounded-md border text-xs flex items-center gap-1 transition-colors cursor-pointer ${
               animateFlow 
-                ? 'bg-indigo-50 border-indigo-200 text-indigo-700' 
-                : 'bg-slate-100 border-slate-200 text-slate-600'
+                ? 'bg-[#e8f0fe] border-[#d2e3fc] text-[#1a73e8]' 
+                : 'bg-[#f1f3f4] border-[#dadce0] text-[#5f6368]'
             }`}
             title="Toggle animated PageRank equity stream"
           >
             <Zap className="w-3.5 h-3.5" />
-            <span className="text-[11px] font-semibold hidden sm:inline">Flow</span>
+            <span className="text-[11px] font-medium hidden sm:inline">Flow</span>
           </button>
 
           {/* Zoom controls */}
-          <div className="flex items-center gap-1 bg-slate-100 p-0.5 rounded-lg border border-slate-200">
+          <div className="flex items-center gap-1 bg-[#f1f3f4] p-0.5 rounded-md border border-[#dadce0]">
             <button
               type="button"
               onClick={() => setZoom(prev => Math.min(prev + 0.2, 2.8))}
-              className="p-1 hover:bg-white text-slate-700 rounded transition-colors cursor-pointer"
+              className="p-1 hover:bg-white text-[#5f6368] hover:text-[#202124] rounded transition-colors cursor-pointer"
               title="Zoom in"
             >
               <ZoomIn className="w-3.5 h-3.5" />
@@ -478,7 +478,7 @@ export function LinkGraphVisualizer({
             <button
               type="button"
               onClick={() => setZoom(prev => Math.max(prev - 0.2, 0.4))}
-              className="p-1 hover:bg-white text-slate-700 rounded transition-colors cursor-pointer"
+              className="p-1 hover:bg-white text-[#5f6368] hover:text-[#202124] rounded transition-colors cursor-pointer"
               title="Zoom out"
             >
               <ZoomOut className="w-3.5 h-3.5" />
@@ -486,7 +486,7 @@ export function LinkGraphVisualizer({
             <button
               type="button"
               onClick={handleResetView}
-              className="p-1 hover:bg-white text-slate-700 rounded transition-colors cursor-pointer"
+              className="p-1 hover:bg-white text-[#5f6368] hover:text-[#202124] rounded transition-colors cursor-pointer"
               title="Reset Zoom & Pan"
             >
               <RotateCcw className="w-3.5 h-3.5" />
@@ -494,12 +494,12 @@ export function LinkGraphVisualizer({
           </div>
 
           {/* View mode toggle (Split vs Expanded vs Fullscreen) */}
-          <div className="flex items-center gap-1 bg-slate-100 p-0.5 rounded-lg border border-slate-200">
+          <div className="flex items-center gap-1 bg-[#f1f3f4] p-0.5 rounded-md border border-[#dadce0]">
             <button
               type="button"
               onClick={() => setViewMode(viewMode === 'expanded' ? 'split' : 'expanded')}
               className={`p-1.5 rounded text-xs transition-colors cursor-pointer ${
-                viewMode === 'expanded' ? 'bg-white text-indigo-600 shadow-2xs' : 'text-slate-600 hover:text-slate-900'
+                viewMode === 'expanded' ? 'bg-white text-[#1a73e8] shadow-xs' : 'text-[#5f6368] hover:text-[#202124]'
               }`}
               title={viewMode === 'expanded' ? 'Switch to Split Inspector' : 'Expand Canvas (100% width)'}
             >
@@ -509,7 +509,7 @@ export function LinkGraphVisualizer({
               type="button"
               onClick={() => setViewMode(viewMode === 'fullscreen' ? 'split' : 'fullscreen')}
               className={`p-1.5 rounded text-xs transition-colors cursor-pointer ${
-                viewMode === 'fullscreen' ? 'bg-indigo-600 text-white shadow-2xs' : 'text-slate-600 hover:text-slate-900'
+                viewMode === 'fullscreen' ? 'bg-[#1a73e8] text-white shadow-xs' : 'text-[#5f6368] hover:text-[#202124]'
               }`}
               title={viewMode === 'fullscreen' ? 'Exit Fullscreen' : 'Enter Fullscreen Mode'}
             >

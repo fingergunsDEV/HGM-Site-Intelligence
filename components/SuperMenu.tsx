@@ -262,15 +262,15 @@ export function SuperMenu({
   const getBadgeStyle = (type?: string) => {
     switch (type) {
       case 'danger':
-        return 'bg-rose-100 text-rose-700 border-rose-200';
+        return 'bg-[#fce8e6] text-[#c5221f] border-[#fad2cf]';
       case 'warning':
-        return 'bg-amber-100 text-amber-800 border-amber-200';
+        return 'bg-[#fef7e0] text-[#b06000] border-[#feefc3]';
       case 'success':
-        return 'bg-emerald-100 text-emerald-800 border-emerald-200';
+        return 'bg-[#e6f4ea] text-[#137333] border-[#ceead6]';
       case 'primary':
-        return 'bg-indigo-100 text-indigo-800 border-indigo-200';
+        return 'bg-[#e8f0fe] text-[#1a73e8] border-[#d2e3fc]';
       default:
-        return 'bg-slate-100 text-slate-700 border-slate-200';
+        return 'bg-[#f1f3f4] text-[#3c4043] border-[#dadce0]';
     }
   };
 
@@ -279,21 +279,21 @@ export function SuperMenu({
       {/* Mobile Backdrop */}
       {isMobileOpen && (
         <div 
-          className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-40 lg:hidden"
+          className="fixed inset-0 bg-[#202124]/40 backdrop-blur-xs z-40 lg:hidden"
           onClick={onCloseMobile}
         />
       )}
 
-      {/* Super Menu Container (2-Tier Semrush-style sidebar) */}
+      {/* Super Menu Container (2-Tier Google Cloud-style sidebar) */}
       <aside className={`
         fixed lg:sticky top-0 lg:top-[65px] h-screen lg:h-[calc(100vh-65px)] z-50 lg:z-30 
         flex shrink-0 transition-all duration-200 ease-in-out select-none
         ${isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
         {/* ============================================================== */}
-        {/* TIER 1: PRIMARY ICON RAIL (Dark Slate / Semrush Navigation) */}
+        {/* TIER 1: PRIMARY ICON RAIL (Google Cloud Style Rail) */}
         {/* ============================================================== */}
-        <div className="w-14 sm:w-16 bg-slate-950 border-r border-slate-800 flex flex-col items-center justify-between py-4 z-20 text-slate-400">
+        <div className="w-14 sm:w-16 bg-[#ffffff] border-r border-[#dadce0] flex flex-col items-center justify-between py-4 z-20 text-[#5f6368]">
           {/* Top: Home & Domain Switchers */}
           <div className="w-full flex flex-col items-center space-y-3">
             {/* Quick Home / Dashboard jump */}
@@ -305,16 +305,16 @@ export function SuperMenu({
                 if (onCloseMobile) onCloseMobile();
               }}
               title="Overview & Dashboard"
-              className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all cursor-pointer ${
+              className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all cursor-pointer ${
                 activeTab === 'dashboard'
-                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
-                  : 'hover:bg-slate-800 text-slate-300'
+                  ? 'bg-[#e8f0fe] text-[#1a73e8]'
+                  : 'hover:bg-[#f1f3f4] text-[#5f6368] hover:text-[#202124]'
               }`}
             >
               <Home className="w-5 h-5" />
             </button>
 
-            <div className="w-8 h-px bg-slate-800 my-1" />
+            <div className="w-8 h-px bg-[#dadce0] my-1" />
 
             {/* Domain Icons */}
             {domains.map((dom) => {
@@ -335,21 +335,21 @@ export function SuperMenu({
                     }
                   }}
                   title={dom.name}
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all relative group cursor-pointer ${
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all relative group cursor-pointer ${
                     isActiveDomain || hasActiveTabInDomain
-                      ? 'bg-slate-800 text-indigo-400 ring-1 ring-indigo-500/50'
-                      : 'hover:bg-slate-900 hover:text-slate-200 text-slate-400'
+                      ? 'bg-[#e8f0fe] text-[#1a73e8]'
+                      : 'hover:bg-[#f1f3f4] hover:text-[#202124] text-[#5f6368]'
                   }`}
                 >
                   <Icon className="w-5 h-5" />
                   
                   {/* Active Indicator Dot */}
                   {hasActiveTabInDomain && (
-                    <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-indigo-500 ring-2 ring-slate-950" />
+                    <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[#1a73e8] ring-2 ring-white" />
                   )}
 
                   {/* Tooltip on Hover */}
-                  <div className="absolute left-full ml-3 px-2 py-1 bg-slate-900 text-white text-[11px] font-medium rounded-md shadow-xl border border-slate-700 whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-50">
+                  <div className="absolute left-full ml-3 px-2 py-1 bg-[#202124] text-white text-[11px] font-medium rounded shadow-md whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-50">
                     {dom.name}
                   </div>
                 </button>
@@ -365,12 +365,12 @@ export function SuperMenu({
               onClick={() => {
                 if (onOpenSuperAdminChat) onOpenSuperAdminChat();
               }}
-              title="Gemini 3.8 SuperAdmin Copilot"
-              className="w-10 h-10 rounded-xl flex items-center justify-center bg-indigo-950/60 border border-indigo-800/60 hover:bg-indigo-900 text-indigo-300 transition-colors cursor-pointer relative group"
+              title="Gemini SuperAdmin Copilot"
+              className="w-10 h-10 rounded-lg flex items-center justify-center bg-[#f8fafd] border border-[#dadce0] hover:bg-[#e8f0fe] text-[#1a73e8] transition-colors cursor-pointer relative group"
             >
-              <Bot className="w-5 h-5 text-indigo-400" />
-              <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <div className="absolute left-full ml-3 px-2 py-1 bg-slate-900 text-white text-[11px] font-medium rounded-md shadow-xl border border-slate-700 whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-50">
+              <Bot className="w-5 h-5 text-[#1a73e8]" />
+              <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[#1e8e3e]" />
+              <div className="absolute left-full ml-3 px-2 py-1 bg-[#202124] text-white text-[11px] font-medium rounded shadow-md whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-50">
                 Gemini AI Copilot
               </div>
             </button>
@@ -381,7 +381,7 @@ export function SuperMenu({
                 type="button"
                 onClick={onToggleCollapse}
                 title={isCollapsed ? 'Expand Super Menu' : 'Collapse Super Menu'}
-                className="hidden lg:flex w-8 h-8 rounded-lg items-center justify-center hover:bg-slate-800 text-slate-400 hover:text-slate-200 transition-colors cursor-pointer"
+                className="hidden lg:flex w-8 h-8 rounded-lg items-center justify-center hover:bg-[#f1f3f4] text-[#5f6368] hover:text-[#202124] transition-colors cursor-pointer"
               >
                 {isCollapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
               </button>
@@ -392,7 +392,7 @@ export function SuperMenu({
               <button
                 type="button"
                 onClick={onCloseMobile}
-                className="lg:hidden w-8 h-8 rounded-lg flex items-center justify-center hover:bg-slate-800 text-slate-400 cursor-pointer"
+                className="lg:hidden w-8 h-8 rounded-lg flex items-center justify-center hover:bg-[#f1f3f4] text-[#5f6368] cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -404,23 +404,23 @@ export function SuperMenu({
         {/* TIER 2: EXPANDED SUB-NAVIGATION MENU (Categorized Tabs) */}
         {/* ============================================================== */}
         <div className={`
-          bg-white border-r border-slate-200 h-full flex flex-col justify-between overflow-hidden transition-all duration-200 ease-in-out
+          bg-[#ffffff] border-r border-[#dadce0] h-full flex flex-col justify-between overflow-hidden transition-all duration-200 ease-in-out
           ${isCollapsed ? 'w-0 opacity-0 pointer-events-none' : 'w-56 sm:w-64 opacity-100'}
         `}>
           {/* Top Panel Header */}
-          <div className="p-3.5 border-b border-slate-100 flex items-center justify-between">
+          <div className="p-3.5 border-b border-[#dadce0] flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="text-xs font-black uppercase tracking-wider text-slate-800 font-mono">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#202124]">
                 {domains.find(d => d.id === activeDomain)?.name || 'Platform Tools'}
               </span>
             </div>
-            <span className="text-[10px] font-mono text-slate-500 font-medium">
-              {domainTools.length} {domainTools.length === 1 ? 'function' : 'functions'}
+            <span className="text-[11px] text-[#5f6368] font-normal">
+              {domainTools.length} {domainTools.length === 1 ? 'item' : 'items'}
             </span>
           </div>
 
           {/* Nav List with Tab Buttons */}
-          <div className="flex-1 overflow-y-auto p-2.5 space-y-1.5 scrollbar-thin">
+          <div className="flex-1 overflow-y-auto p-2.5 space-y-1 scrollbar-thin">
             {domainTools.map((tool) => {
               const Icon = tool.icon;
               const isSelected = activeTab === tool.id;
@@ -430,34 +430,34 @@ export function SuperMenu({
                   key={tool.id}
                   type="button"
                   onClick={() => handleSelectTool(tool.id)}
-                  className={`w-full text-left p-2.5 rounded-xl transition-all flex items-start gap-2.5 cursor-pointer group ${
+                  className={`w-full text-left p-2.5 rounded-lg transition-all flex items-start gap-2.5 cursor-pointer group ${
                     isSelected
-                      ? 'bg-indigo-50 border border-indigo-200/80 text-indigo-950 shadow-2xs font-semibold'
-                      : 'hover:bg-slate-50 text-slate-700 border border-transparent'
+                      ? 'bg-[#e8f0fe] text-[#1967d2] font-medium'
+                      : 'hover:bg-[#f8f9fa] text-[#3c4043]'
                   }`}
                 >
-                  <div className={`mt-0.5 p-1.5 rounded-lg shrink-0 transition-colors ${
+                  <div className={`mt-0.5 p-1.5 rounded-md shrink-0 transition-colors ${
                     isSelected 
-                      ? 'bg-indigo-600 text-white shadow-2xs' 
-                      : 'bg-slate-100 text-slate-600 group-hover:bg-indigo-100 group-hover:text-indigo-700'
+                      ? 'bg-[#1a73e8] text-white' 
+                      : 'bg-[#f1f3f4] text-[#5f6368] group-hover:text-[#202124]'
                   }`}>
                     <Icon className="w-4 h-4" />
                   </div>
 
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-1">
-                      <span className={`text-xs font-bold truncate ${
-                        isSelected ? 'text-indigo-900' : 'text-slate-800'
+                      <span className={`text-xs truncate ${
+                        isSelected ? 'font-medium text-[#1967d2]' : 'font-normal text-[#202124]'
                       }`}>
                         {tool.title}
                       </span>
                       {tool.badge !== undefined && (
-                        <span className={`px-1.5 py-0.2 rounded text-[10px] font-mono font-bold shrink-0 border ${getBadgeStyle(tool.badgeType)}`}>
+                        <span className={`px-1.5 py-0.2 rounded text-[10px] font-medium shrink-0 border ${getBadgeStyle(tool.badgeType)}`}>
                           {tool.badge}
                         </span>
                       )}
                     </div>
-                    <p className="text-[10px] text-slate-600 line-clamp-1 leading-tight mt-0.5 font-normal">
+                    <p className="text-[11px] text-[#5f6368] line-clamp-1 leading-tight mt-0.5 font-normal">
                       {tool.description}
                     </p>
                   </div>
@@ -466,8 +466,8 @@ export function SuperMenu({
             })}
 
             {/* Quick Helper / Actions for this domain */}
-            <div className="pt-3 mt-3 border-t border-slate-100">
-              <div className="px-2 py-1 text-[10px] font-mono uppercase text-slate-600 font-bold tracking-wider">
+            <div className="pt-3 mt-3 border-t border-[#dadce0]">
+              <div className="px-2 py-1 text-[11px] uppercase text-[#5f6368] font-medium tracking-wider">
                 Domain Actions
               </div>
 
@@ -479,9 +479,9 @@ export function SuperMenu({
                       if (onOpenFixAll) onOpenFixAll();
                       handleSelectTool('fixall');
                     }}
-                    className="w-full text-left px-2.5 py-1.5 text-xs text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50/50 rounded-lg flex items-center justify-between cursor-pointer font-medium"
+                    className="w-full text-left px-2.5 py-1.5 text-xs text-[#1a73e8] hover:bg-[#e8f0fe] rounded-md flex items-center justify-between cursor-pointer font-medium"
                   >
-                    <span>⚡ 1-Click Fix All HTML</span>
+                    <span>Fix All HTML Defects</span>
                     <ChevronRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -494,9 +494,9 @@ export function SuperMenu({
                     onClick={() => {
                       if (onOpenSmtpModal) onOpenSmtpModal();
                     }}
-                    className="w-full text-left px-2.5 py-1.5 text-xs text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50/50 rounded-lg flex items-center justify-between cursor-pointer font-medium"
+                    className="w-full text-left px-2.5 py-1.5 text-xs text-[#1a73e8] hover:bg-[#e8f0fe] rounded-md flex items-center justify-between cursor-pointer font-medium"
                   >
-                    <span>✉️ SMTP Credentials Modal</span>
+                    <span>SMTP Relay Settings</span>
                     <ChevronRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -509,9 +509,9 @@ export function SuperMenu({
                     onClick={() => {
                       if (onOpenSuperAdminChat) onOpenSuperAdminChat();
                     }}
-                    className="w-full text-left px-2.5 py-1.5 text-xs text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50/50 rounded-lg flex items-center justify-between cursor-pointer font-medium"
+                    className="w-full text-left px-2.5 py-1.5 text-xs text-[#1a73e8] hover:bg-[#e8f0fe] rounded-md flex items-center justify-between cursor-pointer font-medium"
                   >
-                    <span>✨ Ask Gemini SuperAdmin</span>
+                    <span>Ask Gemini Assistant</span>
                     <ChevronRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -522,9 +522,9 @@ export function SuperMenu({
                   <button
                     type="button"
                     onClick={() => handleSelectTool('codebase')}
-                    className="w-full text-left px-2.5 py-1.5 text-xs text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50/50 rounded-lg flex items-center justify-between cursor-pointer font-medium"
+                    className="w-full text-left px-2.5 py-1.5 text-xs text-[#1a73e8] hover:bg-[#e8f0fe] rounded-md flex items-center justify-between cursor-pointer font-medium"
                   >
-                    <span>💻 Open Virtual File Tree</span>
+                    <span>Open Virtual File Tree</span>
                     <ChevronRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -533,10 +533,10 @@ export function SuperMenu({
           </div>
 
           {/* Bottom Status Card */}
-          <div className="p-3 border-t border-slate-100 bg-slate-50/50">
-            <div className="flex items-center justify-between text-[11px] font-mono text-slate-500">
+          <div className="p-3 border-t border-[#dadce0] bg-[#f8fafd]">
+            <div className="flex items-center justify-between text-[11px] text-[#5f6368]">
               <span className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                <span className="w-2 h-2 rounded-full bg-[#1e8e3e]" />
                 <span>Engine Active</span>
               </span>
               <span>v0.1.0</span>

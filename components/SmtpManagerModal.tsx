@@ -214,24 +214,24 @@ export function SmtpManagerModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-xs animate-in fade-in duration-200">
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-2xl w-full max-w-2xl overflow-hidden flex flex-col max-h-[92vh]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#202124]/40 backdrop-blur-xs animate-in fade-in duration-200">
+      <div className="bg-white rounded-lg border border-[#dadce0] shadow-xl w-full max-w-2xl overflow-hidden flex flex-col max-h-[92vh] text-[#202124]">
         {/* Header */}
-        <div className="bg-slate-950 text-white p-5 flex items-center justify-between border-b border-slate-800 shrink-0">
+        <div className="bg-white text-[#202124] p-5 flex items-center justify-between border-b border-[#dadce0] shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-cyan-600 flex items-center justify-center text-white shadow-md shadow-cyan-600/30">
-              <Mail className="w-5 h-5" />
+            <div className="w-9 h-9 rounded-md bg-[#e8f0fe] flex items-center justify-center text-[#1a73e8] border border-[#d2e3fc]">
+              <Mail className="w-4 h-4" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="text-base font-bold text-white tracking-tight">
+                <h2 className="text-base font-semibold text-[#202124] tracking-tight">
                   SMTP Integration & Email Alerts
                 </h2>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-cyan-300 border border-slate-700">
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#f1f3f4] text-[#3c4043] border border-[#dadce0]">
                   v2.4
                 </span>
               </div>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-[#5f6368]">
                 Connect your custom SMTP mail relay to send automated SEO reports & crawl alerts
               </p>
             </div>
@@ -240,63 +240,63 @@ export function SmtpManagerModal({
           <button
             type="button"
             onClick={onClose}
-            className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition-colors cursor-pointer"
+            className="p-1.5 text-[#5f6368] hover:text-[#202124] rounded-md hover:bg-[#f1f3f4] transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex items-center gap-1 px-5 border-b border-slate-200 bg-slate-50 shrink-0 text-xs">
+        <div className="flex items-center gap-1 px-5 border-b border-[#dadce0] bg-[#f8fafd] shrink-0 text-xs">
           <button
             type="button"
             onClick={() => setActiveTab('config')}
-            className={`flex items-center gap-2 py-3 px-3.5 font-semibold border-b-2 transition-all cursor-pointer ${
+            className={`flex items-center gap-2 py-3 px-3.5 font-medium border-b-2 transition-all cursor-pointer ${
               activeTab === 'config'
-                ? 'border-cyan-600 text-cyan-700 bg-white'
-                : 'border-transparent text-slate-600 hover:text-slate-900'
+                ? 'border-[#1a73e8] text-[#1a73e8] bg-white'
+                : 'border-transparent text-[#5f6368] hover:text-[#202124]'
             }`}
           >
-            <Server className="w-4 h-4" />
+            <Server className="w-3.5 h-3.5" />
             <span>SMTP Server Config</span>
           </button>
 
           <button
             type="button"
             onClick={() => setActiveTab('send')}
-            className={`flex items-center gap-2 py-3 px-3.5 font-semibold border-b-2 transition-all cursor-pointer ${
+            className={`flex items-center gap-2 py-3 px-3.5 font-medium border-b-2 transition-all cursor-pointer ${
               activeTab === 'send'
-                ? 'border-cyan-600 text-cyan-700 bg-white'
-                : 'border-transparent text-slate-600 hover:text-slate-900'
+                ? 'border-[#1a73e8] text-[#1a73e8] bg-white'
+                : 'border-transparent text-[#5f6368] hover:text-[#202124]'
             }`}
           >
-            <Send className="w-4 h-4" />
+            <Send className="w-3.5 h-3.5" />
             <span>Dispatch Audit Report</span>
           </button>
 
           <button
             type="button"
             onClick={() => setActiveTab('alerts')}
-            className={`flex items-center gap-2 py-3 px-3.5 font-semibold border-b-2 transition-all cursor-pointer ${
+            className={`flex items-center gap-2 py-3 px-3.5 font-medium border-b-2 transition-all cursor-pointer ${
               activeTab === 'alerts'
-                ? 'border-cyan-600 text-cyan-700 bg-white'
-                : 'border-transparent text-slate-600 hover:text-slate-900'
+                ? 'border-[#1a73e8] text-[#1a73e8] bg-white'
+                : 'border-transparent text-[#5f6368] hover:text-[#202124]'
             }`}
           >
-            <SlidersHorizontal className="w-4 h-4" />
+            <SlidersHorizontal className="w-3.5 h-3.5" />
             <span>Automation Rules</span>
           </button>
 
           <button
             type="button"
             onClick={() => setActiveTab('gcp')}
-            className={`flex items-center gap-2 py-3 px-3.5 font-semibold border-b-2 transition-all cursor-pointer ml-auto ${
+            className={`flex items-center gap-2 py-3 px-3.5 font-medium border-b-2 transition-all cursor-pointer ml-auto ${
               activeTab === 'gcp'
-                ? 'border-cyan-600 text-cyan-700 bg-white'
-                : 'border-transparent text-slate-600 hover:text-slate-900'
+                ? 'border-[#1a73e8] text-[#1a73e8] bg-white'
+                : 'border-transparent text-[#5f6368] hover:text-[#202124]'
             }`}
           >
-            <Cloud className={`w-4 h-4 ${hasGcpAccess ? 'text-emerald-600' : 'text-amber-500'}`} />
+            <Cloud className={`w-3.5 h-3.5 ${hasGcpAccess ? 'text-[#137333]' : 'text-[#b06000]'}`} />
             <span>GCP Account {hasGcpAccess ? '✓' : '(Required)'}</span>
           </button>
         </div>
@@ -755,8 +755,8 @@ export function SmtpManagerModal({
         </div>
 
         {/* Footer */}
-        <div className="p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between shrink-0">
-          <div className="text-[11px] text-slate-500 font-mono">
+        <div className="p-4 bg-[#f8fafd] border-t border-[#dadce0] flex items-center justify-between shrink-0">
+          <div className="text-[11px] text-[#5f6368] font-mono">
             Relay: {config.host}:{config.port} ({config.secure ? 'SSL' : 'TLS'})
           </div>
 
@@ -764,14 +764,14 @@ export function SmtpManagerModal({
             <button
               type="button"
               onClick={onClose}
-              className="px-3.5 py-2 text-xs font-semibold text-slate-600 hover:text-slate-900 bg-white border border-slate-200 rounded-lg transition-colors cursor-pointer"
+              className="px-3.5 py-1.5 text-xs font-medium text-[#3c4043] hover:text-[#202124] bg-white border border-[#dadce0] rounded-md transition-colors cursor-pointer hover:bg-[#f8fafd]"
             >
               Cancel
             </button>
             <button
               type="button"
               onClick={handleSaveAndClose}
-              className="px-4 py-2 text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-lg shadow-xs transition-colors cursor-pointer"
+              className="px-4 py-1.5 text-xs font-medium text-white bg-[#1a73e8] hover:bg-[#1557b0] rounded-md transition-colors cursor-pointer"
             >
               Save Configuration
             </button>
