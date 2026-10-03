@@ -111,6 +111,13 @@ The **Site Intelligence Platform** is an enterprise-grade SEO and Schema crawler
 - Pro features (Bulk CSV exports, Clean HTML `.zip` downloads, Unlimited live crawling) require upgrading to the **Pro Plan ($20/month)**.
 - Anti-scraping mechanisms in `ContentProtection.tsx` block casual table text-scraping, right-click context menus, and developer inspect shortcuts for unauthenticated/free users while providing clear upgrade callouts.
 
+### 5. Google Analytics 4 & Search Console Integration (`lib/google/`, `app/api/google/`)
+- REST-only (no `googleapis` dependency). Server-side only; client UI lives in `components/GoogleDataView.tsx` (tab id `google`).
+- Auth priority per request: visitor OAuth cookie (encrypted httpOnly `hgm_google_oauth`) > `GOOGLE_REFRESH_TOKEN` > service account.
+- Scopes: `analytics.readonly`, `webmasters.readonly`. Endpoints are documented in `lib/google/config.ts`.
+- `GOOGLE_PRIVATE_KEY` may contain literal `\n` sequences; `normalizePrivateKey()` converts them. Do not add extra escaping.
+- Unit tests: `bun test` (`lib/google/google.test.ts`, excluded from the Next.js type check).
+
 ---
 
 ## 5. Development & Build Verification Commands
@@ -118,3 +125,4 @@ The **Site Intelligence Platform** is an enterprise-grade SEO and Schema crawler
 - `npm run dev`: Starts local development server on port 3000
 - `npm run lint`: Runs ESLint 9 checks across all TypeScript and React files
 - `npm run build`: Executes production Next.js compilation and type check
+- `bun test`: Runs unit tests (GA4 / Search Console request builders and env parsing)

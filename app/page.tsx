@@ -63,6 +63,7 @@ import { OrchestratorView } from '@/components/OrchestratorView';
 import { CicdPipelineView } from '@/components/CicdPipelineView';
 import { JsonIngestView } from '@/components/JsonIngestView';
 import { SuperAdminChatbot } from '@/components/SuperAdminChatbot';
+import { GoogleDataView } from '@/components/GoogleDataView';
 import { SmtpConfig } from '@/types/site-intelligence';
 import { fixAllPages, fixPageHtml, FixAllSummary, PageFixResult } from '@/lib/html-fixer';
 import { getAceOrchestrator } from '@/lib/ace-orchestrator';
@@ -113,6 +114,7 @@ export default function Home() {
       case 'architecture':
         return 'Engineering Suite';
       case 'payloads':
+      case 'google':
         return 'Data & Schemas';
       case 'smtp':
       case 'logs':
@@ -140,6 +142,8 @@ export default function Home() {
         return 'Codebase IDE & Live HTML Editor';
       case 'payloads':
         return 'JSON-LD Engine & Schema Payloads';
+      case 'google':
+        return 'Google Analytics 4 & Search Console';
       case 'cicd':
         return 'CI/CD Pipeline & Health Stages';
       case 'orchestrator':
@@ -224,6 +228,19 @@ export default function Home() {
     };
     setLogs(prev => [...prev, newLog]);
   };
+
+  // After the Google OAuth callback redirects to /?google=<status>, open the GA4 & Search Console tab.
+  // GoogleDataView reads and clears the flag once mounted.
+  useEffect(() => {
+    let cancelled = false;
+    Promise.resolve().then(() => {
+      if (cancelled || typeof window === 'undefined') return;
+      if (new URLSearchParams(window.location.search).has('google')) setActiveTab('google');
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const handleOpenAuth = (mode: 'signup' | 'signin' = 'signup') => {
     setAuthModalMode(mode);
@@ -1088,6 +1105,13 @@ export default function Home() {
               onSelectPageAudit={(page) => setSelectedAuditPage(page)}
               onSelectPageSchema={(page) => setSelectedSchemaPage(page)}
             />
+          </div>
+        )}
+
+        {/* TAB: Google Analytics 4 & Search Console */}
+        {activeTab === 'google' && (
+          <div className="space-y-4 animate-in fade-in duration-150">
+            <GoogleDataView pages={pages} onLog={addLog} />
           </div>
         )}
 

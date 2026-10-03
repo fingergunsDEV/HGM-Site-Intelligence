@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   Search, 
   X, 
+  BarChart3,
   Home, 
   Sparkles, 
   Network, 
@@ -135,6 +136,15 @@ export function ToolSwitcherModal({
       description: 'Synthesize Schema.org JSON-LD entities, ingest raw JSON, and validate microdata',
       keywords: ['json', 'payloads', 'schema', 'ld+json', 'ingest', 'microdata', 'entities', 'convert'],
       icon: FileJson,
+      actionType: 'tab'
+    },
+    {
+      id: 'google',
+      title: 'GA4 & Search Console',
+      category: 'Data & Schemas',
+      description: 'Google Analytics 4 top pages, Search Console queries, sitemaps & URL inspection',
+      keywords: ['google', 'analytics', 'ga4', 'search console', 'gsc', 'webmasters', 'traffic', 'clicks', 'impressions', 'sitemaps', 'inspection'],
+      icon: BarChart3,
       actionType: 'tab'
     },
     {

@@ -135,7 +135,8 @@ export type AppTabType =
   | 'fixall'
   | 'smtp'
   | 'logs'
-  | 'copilot';
+  | 'copilot'
+  | 'google';
 
 export interface SmtpConfig {
   host: string;
