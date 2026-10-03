@@ -30,7 +30,8 @@ import {
   UserPlus,
   Search,
   Sliders,
-  Terminal
+  Terminal,
+  BarChart3
 } from 'lucide-react';
 import { CrawlSummary, AppTabType } from '@/types/site-intelligence';
 import { UserAccount } from '@/types/auth';
@@ -54,6 +55,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'graph', label: 'Link Graph', icon: Network, description: 'Internal link topology & PageRank weights', category: 'analysis' },
   { id: 'heatmap', label: 'SEO Heatmap', icon: Flame, description: 'Visual issue density & health matrix', category: 'analysis' },
   { id: 'ai', label: 'AI Optimizer', icon: Sparkles, description: 'Gemini recommendations & auto-links', category: 'analysis' },
+  { id: 'google', label: 'GA4 & Search Console', shortLabel: 'GA4/GSC', icon: BarChart3, description: 'Google Analytics 4 reports & Search Console performance', category: 'analysis' },
   { id: 'codebase', label: 'Codebase IDE', icon: FolderTree, description: 'Virtual file tree & HTML editor', category: 'dev' },
   { id: 'payloads', label: 'JSON Engine', icon: FileJson, description: 'JSON-LD payload generator & batch ingest', category: 'dev' },
   { id: 'cicd', label: 'CI/CD Pipeline', shortLabel: 'CI/CD', icon: GitCommit, description: 'Automated verification & deploy stages', category: 'dev' },

@@ -206,6 +206,16 @@ export function SuperMenu({
       badge: summary.schemasGeneratedCount > 0 ? summary.schemasGeneratedCount : undefined,
       badgeType: 'success'
     },
+    {
+      id: 'google',
+      title: 'GA4 & Search Console',
+      category: 'Data & Schemas',
+      domain: 'data',
+      description: 'Google Analytics 4 top pages, Search Console queries, sitemaps & URL inspection',
+      icon: BarChart3,
+      badge: 'Google',
+      isNew: true
+    },
 
     // 6. Relay & Logs Domain
     {
